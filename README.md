@@ -212,18 +212,6 @@ After deep investigation, we've identified the complete problem:
 
 ---
 
-**Question**: "Why is this taking so long? It's just formatting?"
-
-**Answer**:
-"We discovered this isn't a formatting issue - it's a data quality issue affecting 4 different system components. Like finding out a building has foundation, plumbing, electrical, and HVAC problems, not just needing paint. Each layer requires testing different solutions, and we're documenting everything to ensure it's fixed permanently, not just patched."
-
-**Question**: "Why not just use `white-space: pre-line`?"
-
-**Answer**:
-"Angular's View Encapsulation architecture prevents global CSS from affecting component styles. Additionally, the database contains Windows-format line endings (`\r`) which browsers don't recognize. We need coordinated backend normalization + frontend rendering + CSS adjustments to solve this properly."
-
----
-
 ### Files Modified
 1. `nexclap_backend/app/views.py` - Lines 2727, 2731, 2542 (backend normalization)
 2. `NexClap/src/app/school/components/post-card/post-card.component.html` - Line 46 (template binding)
